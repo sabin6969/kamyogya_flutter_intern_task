@@ -11,9 +11,12 @@ class AppTheme {
       filled: true,
       fillColor: const Color(0xFFD9D9D9),
       enabledBorder: OutlineInputBorder(
-        borderSide: const BorderSide(width: 2, color: Colors.grey),
+        borderSide: BorderSide(
+          width: 2,
+          color: Colors.grey.shade100,
+        ),
         borderRadius: BorderRadius.circular(
-          10,
+          5,
         ),
       ),
       focusedBorder: OutlineInputBorder(
@@ -22,7 +25,7 @@ class AppTheme {
           color: Colors.black,
         ),
         borderRadius: BorderRadius.circular(
-          10,
+          5,
         ),
       ),
     ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kamyogya_flutter_intern_task/main.dart';
+import 'package:kamyogya_flutter_intern_task/utils/show_snackbar.dart';
 import 'package:kamyogya_flutter_intern_task/widgets/custom_button.dart';
+import 'package:clipboard/clipboard.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({super.key});
@@ -31,7 +33,14 @@ class _FirstScreenState extends State<FirstScreen> {
                   ),
                 ),
                 CustomButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    FlutterClipboard.copy("This is text").then((value) {
+                      showSnackBar(
+                        message: "API end point copied",
+                        context: context,
+                      );
+                    });
+                  },
                   minWidth: size.width * 0.2,
                   buttonName: "Copy",
                 )
