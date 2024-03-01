@@ -3,6 +3,7 @@ import 'package:kamyogya_flutter_intern_task/main.dart';
 import 'package:kamyogya_flutter_intern_task/utils/show_snackbar.dart';
 import 'package:kamyogya_flutter_intern_task/widgets/custom_button.dart';
 import 'package:clipboard/clipboard.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({super.key});
@@ -12,6 +13,10 @@ class FirstScreen extends StatefulWidget {
 }
 
 class _FirstScreenState extends State<FirstScreen> {
+  final GlobalKey<FormState> _globalKey = GlobalKey<FormState>();
+  final String apiEndPoint =
+      dotenv.env["API_END_POINT"] ?? "Failed to load environment variable";
+
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.sizeOf(context);
@@ -19,22 +24,22 @@ class _FirstScreenState extends State<FirstScreen> {
       appBar: AppBar(),
       body: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: size.width * 0.1,
+          horizontal: size.width * 0.05,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Row(
               children: [
-                const Expanded(
+                Expanded(
                   child: Text(
-                    "https://rotarydistrict3292.org.np/api/club/member/search",
+                    apiEndPoint,
                     textAlign: TextAlign.center,
                   ),
                 ),
                 CustomButton(
                   onPressed: () {
-                    FlutterClipboard.copy("This is text").then((value) {
+                    FlutterClipboard.copy(apiEndPoint).then((value) {
                       showSnackBar(
                         message: "API end point copied",
                         context: context,
@@ -49,12 +54,20 @@ class _FirstScreenState extends State<FirstScreen> {
             SizedBox(
               height: size.height * 0.03,
             ),
-            TextFormField(),
+            Form(
+              key: _globalKey,
+              child: TextFormField(
+                validator: (value) =>
+                    value!.isEmpty ? "This field is required" : null,
+              ),
+            ),
             SizedBox(
               height: size.height * 0.03,
             ),
             CustomButton(
-              onPressed: () {},
+              onPressed: () {
+                if (_globalKey.currentState!.validate()) {}
+              },
               minWidth: size.width,
               buttonName: "Done",
             )
