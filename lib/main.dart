@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kamyogya_flutter_intern_task/data/repository/api_repository.dart';
 import 'package:kamyogya_flutter_intern_task/data/services/api_services.dart';
+import 'package:kamyogya_flutter_intern_task/notifications/local_notifications.dart';
 import 'package:kamyogya_flutter_intern_task/routes/app_route_config.dart';
 import 'package:kamyogya_flutter_intern_task/themes/app_theme.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -10,6 +11,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 late Size size;
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await LocalNotification.init();
   await dotenv.load(fileName: ".env");
   runApp(const MyApp());
 }

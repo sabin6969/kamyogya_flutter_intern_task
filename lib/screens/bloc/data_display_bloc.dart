@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:kamyogya_flutter_intern_task/data/models/members_model.dart';
+import 'package:kamyogya_flutter_intern_task/notifications/local_notifications.dart';
 
 part 'data_display_event.dart';
 part 'data_display_state.dart';
@@ -25,5 +26,14 @@ class DataDisplayBloc extends Bloc<DataDisplayEvent, DataDisplayState> {
         await Future.delayed(const Duration(seconds: 5));
       }
     }
+    await Future.delayed(const Duration(seconds: 5));
+    sendNotification();
+  }
+
+  void sendNotification() {
+    LocalNotification().sendNotifications(
+      title: "This is the title",
+      body: "This is the body",
+    );
   }
 }
