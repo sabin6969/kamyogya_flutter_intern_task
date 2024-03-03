@@ -14,7 +14,6 @@ class MembersBloc extends Bloc<MembersEvent, MembersState> with ValidateURL {
   MembersBloc({required this.apiRepository}) : super(MembersInitial()) {
     on<MembersLoadEvent>(
       (event, emit) async {
-        emit(MembersInitial());
         if (isValidURL(url: event.endPoint)) {
           emit(MembersLoadingState());
           try {
@@ -35,7 +34,6 @@ class MembersBloc extends Bloc<MembersEvent, MembersState> with ValidateURL {
                 message: e.toString(),
               ),
             );
-            return;
           }
         } else {
           emit(

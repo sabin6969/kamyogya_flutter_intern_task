@@ -22,11 +22,11 @@ class MyApp extends StatelessWidget {
       create: (context) => ApiRepository(
         apiServices: ApiServices(),
       ),
-      child: MaterialApp(
+      child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: 'Kamyogya flutter intern task',
         theme: AppTheme.defaultTheme,
-        onGenerateRoute: AppRoutConfig.generateRoutes,
+        routerConfig: AppRoutConfig().goRouter,
       ),
     );
   }

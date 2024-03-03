@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:kamyogya_flutter_intern_task/bloc/members_bloc.dart';
 import 'package:kamyogya_flutter_intern_task/data/repository/api_repository.dart';
 import 'package:kamyogya_flutter_intern_task/main.dart';
@@ -37,7 +38,7 @@ class _FirstScreenState extends State<FirstScreen> {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else {
+            } else if (state is MembersInitial) {
               return Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: size.width * 0.05,
@@ -100,15 +101,19 @@ class _FirstScreenState extends State<FirstScreen> {
                 ),
               );
             }
+            return const SizedBox.shrink();
           },
           listener: (context, state) {
             if (state is MembersLoadedState) {
-              Navigator.pushReplacementNamed(
-                context,
+              GoRouter.of(context).pushReplacementNamed(
                 AppRouteNames.secondPage,
+                extra: state.members,
               );
             } else if (state is MembersErrorState) {
-              showSnackBar(message: state.message, context: context);
+              showSnackBar(
+                message: state.message,
+                context: context,
+              );
               _textFieldController.clear();
             }
           },
