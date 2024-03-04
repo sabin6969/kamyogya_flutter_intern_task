@@ -38,7 +38,7 @@ class _FirstScreenState extends State<FirstScreen> {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (state is MembersInitial) {
+            } else {
               return Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: size.width * 0.05,
@@ -101,7 +101,6 @@ class _FirstScreenState extends State<FirstScreen> {
                 ),
               );
             }
-            return const SizedBox.shrink();
           },
           listener: (context, state) {
             if (state is MembersLoadedState) {
