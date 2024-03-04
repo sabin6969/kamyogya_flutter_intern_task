@@ -1,4 +1,5 @@
-## Project Overview
+```markdown
+# Project Overview
 
 This Flutter project aims to demonstrate the implementation of various features including making API requests, handling errors, managing state using Bloc, and displaying notifications.
 
@@ -28,7 +29,6 @@ This Flutter project aims to demonstrate the implementation of various features 
 
 The project structure should follow Flutter best practices, with separate folders for different components such as screens, blocs, repositories, services, etc.
 
-
 ## Dependencies
 
 - Flutter SDK
@@ -36,16 +36,15 @@ The project structure should follow Flutter best practices, with separate folder
 - Bloc package for state management
 - flutter_local_notifications package for displaying notifications
 
-```markdown
-## Project Setup
+# Project Setup
 
-### Prerequisites
+## Prerequisites
 
 1. **Flutter SDK**: Ensure you have Flutter installed on your machine. Follow the instructions on the [official Flutter website](https://flutter.dev/docs/get-started/install) to install Flutter for your specific operating system.
 
 2. **Git**: Make sure Git is installed on your machine to clone the project repository from GitHub.
 
-### Steps
+## Steps
 
 1. **Clone the Repository**:
 
@@ -79,7 +78,7 @@ The project structure should follow Flutter best practices, with separate folder
    flutter run
    ```
 
-### Additional Configuration
+## Additional Configuration
 
 - If you encounter any issues related to dependencies or project setup, refer to the official documentation for Flutter and the specific packages being used.
 
@@ -90,10 +89,6 @@ The project structure should follow Flutter best practices, with separate folder
   ```
 
 Now you have successfully set up the Flutter project on your local machine and can begin development or testing.
-```
-
-
-
 
 ## Release
 
@@ -103,6 +98,4 @@ The APK binary for the app must be attached to the GitHub Release for easy distr
 
 - [Sabin Poudel](https://github.com/sabin6969)
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+```
