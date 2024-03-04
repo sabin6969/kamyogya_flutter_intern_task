@@ -52,7 +52,7 @@ The project structure should follow Flutter best practices, with separate folder
 
    ```bash
    git clone https://github.com/sabin6969/kamyogya_flutter_intern_task.git
-
+   ```
 
 2. **Navigate to Project Directory**:
 
@@ -78,7 +78,7 @@ The project structure should follow Flutter best practices, with separate folder
    flutter run
    ```
 
-## Additional Configuration
+### Additional Configuration
 
 - If you encounter any issues related to dependencies or project setup, refer to the official documentation for Flutter and the specific packages being used.
 
@@ -89,13 +89,4 @@ The project structure should follow Flutter best practices, with separate folder
   ```
 
 Now you have successfully set up the Flutter project on your local machine and can begin development or testing.
-
-## Release
-
-The APK binary for the app must be attached to the GitHub Release for easy distribution and testing.
-
-## Contributors
-
-- [Sabin Poudel](https://github.com/sabin6969)
-
 ```
