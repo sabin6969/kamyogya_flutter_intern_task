@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kamyogya_flutter_intern_task/data/repository/api_repository.dart';
 import 'package:kamyogya_flutter_intern_task/data/services/api_services.dart';
 import 'package:kamyogya_flutter_intern_task/notifications/local_notifications.dart';
+import 'package:kamyogya_flutter_intern_task/permissions/notification_permissions.dart';
 import 'package:kamyogya_flutter_intern_task/routes/app_route_config.dart';
 import 'package:kamyogya_flutter_intern_task/themes/app_theme.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -14,6 +15,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await LocalNotification.init();
   await dotenv.load(fileName: ".env");
+  NotificationPermission.askForNotificationPermission();
   runApp(const MyApp());
 }
 
