@@ -18,7 +18,7 @@ This Flutter project aims to demonstrate the implementation of various features 
 - Use Bloc for state management.
 - Initially, display only the first data item.
 - Every 5 seconds, fetch and display a new data item.
-- After displaying three data items, stops adding more data
+- After displaying three data items, stops adding more data.
 
 ### Step 3: Displaying Notification
 
@@ -52,7 +52,7 @@ The project structure should follow Flutter best practices, with separate folder
 
    ```bash
    git clone https://github.com/sabin6969/kamyogya_flutter_intern_task.git
-   ```
+
 
 2. **Navigate to Project Directory**:
 
