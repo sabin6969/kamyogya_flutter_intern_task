@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kamyogya_flutter_intern_task/blocs/display_data/data_display_bloc.dart';
 import 'package:kamyogya_flutter_intern_task/data/models/members_model.dart';
 import 'package:kamyogya_flutter_intern_task/main.dart';
-import 'package:kamyogya_flutter_intern_task/screens/bloc/data_display_bloc.dart';
 
 class SecondScreen extends StatefulWidget {
   final List<MembersModel>? members;

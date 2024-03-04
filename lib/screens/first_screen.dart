@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kamyogya_flutter_intern_task/bloc/members_bloc.dart';
+import 'package:kamyogya_flutter_intern_task/blocs/member/members_bloc.dart';
 import 'package:kamyogya_flutter_intern_task/data/repository/api_repository.dart';
 import 'package:kamyogya_flutter_intern_task/main.dart';
 import 'package:kamyogya_flutter_intern_task/routes/app_route_names.dart';

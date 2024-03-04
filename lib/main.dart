@@ -7,12 +7,16 @@ import 'package:kamyogya_flutter_intern_task/permissions/notification_permission
 import 'package:kamyogya_flutter_intern_task/routes/app_route_config.dart';
 import 'package:kamyogya_flutter_intern_task/themes/app_theme.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter/services.dart';
 
 // Creating global object for accessing height and width of screen
 late Size size;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
   await LocalNotification.init();
   await dotenv.load(fileName: ".env");
   NotificationPermission.askForNotificationPermission();
