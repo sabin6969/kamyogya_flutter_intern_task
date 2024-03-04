@@ -11,40 +11,40 @@ part 'members_state.dart';
 class MembersBloc extends Bloc<MembersEvent, MembersState> with ValidateURL {
   final ApiRepository apiRepository;
   MembersBloc({required this.apiRepository}) : super(MembersInitial()) {
-    on<MembersLoadEvent>(
-      (event, emit) async {
-        if (isValidURL(url: event.endPoint)) {
-          emit(MembersLoadingState());
-          try {
-            final List<MembersModel> members =
-                await apiRepository.getMembersData(endPoint: event.endPoint);
-            emit(MembersLoadedState(members: members));
-          } on DioException catch (e) {
-            switch (e.type) {
-              case DioExceptionType.badResponse:
-                emit(const MembersErrorState(message: "Bad Request"));
-              case DioExceptionType.connectionTimeout:
-                emit(
-                    const MembersErrorState(message: "Server request timeout"));
-              case DioExceptionType.cancel:
-                emit(const MembersErrorState(
-                    message: "Request canceled try again"));
-              case DioExceptionType.connectionError:
-                emit(const MembersErrorState(
-                    message:
-                        "Connection error check your internet connection"));
-              default:
-                emit(MembersErrorState(message: e.toString()));
-            }
-          } catch (e) {
+    on<MembersLoadEvent>(handelLoadMemberEvent);
+  }
+
+  Future<void> handelLoadMemberEvent(
+      MembersLoadEvent event, Emitter<MembersState> emit) async {
+    emit(MembersInitial());
+    if (isValidURL(url: event.endPoint)) {
+      emit(MembersLoadingState());
+      try {
+        final List<MembersModel> members =
+            await apiRepository.getMembersData(endPoint: event.endPoint);
+        emit(MembersLoadedState(members: members));
+      } on DioException catch (e) {
+        switch (e.type) {
+          case DioExceptionType.badResponse:
+            emit(const MembersErrorState(message: "Bad Request"));
+          case DioExceptionType.connectionTimeout:
+            emit(const MembersErrorState(message: "Server request timeout"));
+          case DioExceptionType.cancel:
+            emit(
+                const MembersErrorState(message: "Request canceled try again"));
+          case DioExceptionType.connectionError:
+            emit(const MembersErrorState(
+                message: "Connection error check your internet connection"));
+          default:
             emit(MembersErrorState(message: e.toString()));
-          }
-        } else {
-          emit(
-            const MembersErrorState(message: "Please enter a valid url"),
-          );
         }
-      },
-    );
+      } catch (e) {
+        emit(MembersErrorState(message: e.toString()));
+      }
+    } else {
+      emit(
+        const MembersErrorState(message: "Please enter a valid url"),
+      );
+    }
   }
 }
