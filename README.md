@@ -40,9 +40,11 @@ The project structure should follow Flutter best practices, with separate folder
 
 ## Prerequisites
 
-1. **Flutter SDK**: Ensure you have Flutter installed on your machine. Follow the instructions on the [official Flutter website](https://flutter.dev/docs/get-started/install) to install Flutter for your specific operating system.
+1. **Flutter SDK**: 
+Ensure you have Flutter installed on your machine. Follow the instructions on the [official Flutter website](https://flutter.dev/docs/get-started/install) to install Flutter for your specific operating system.
 
-2. **Git**: Make sure Git is installed on your machine to clone the project repository from GitHub.
+2. **Git**: 
+Make sure Git is installed on your machine to clone the project repository from GitHub.
 
 ## Steps
 
